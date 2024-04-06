@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name" translatable="false">MovieApp-CleanArchitecture</string>
+    <string name="movie" translatable="false">MovieCataloG!</string>
+    <string name="release_date" translatable="false">Movie release date</string>
+    <string name="backdrop_image" translatable="false">Movie image</string>
+    <string name="poster_image" translatable="false">Movie poster</string>
+    <string name="action_back" translatable="false">Back to menu</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="menu_settings">Settings</string>
+    <string name="empty_favorite">Empty favorite</string>
+    <string name="something_wrong">Oops.. something went wrong</string>
+    <string name="overview">Overview</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="my_fav_movie">My Favorite Movie</string>
+    <string name="change_language">Change Language</string>
+</resources>

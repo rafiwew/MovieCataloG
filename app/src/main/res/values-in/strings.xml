@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menu_home">Beranda</string>
+    <string name="menu_favorite">Favorit</string>
+    <string name="menu_settings">Pengaturan</string>
+    <string name="empty_favorite">Favorit masih kosong</string>
+    <string name="something_wrong">Oops.. ada kesalahan</string>
+    <string name="overview">Ringkasan</string>
+    <string name="title_favorite">Favorit</string>
+    <string name="my_fav_movie">Film Favorit Saya</string>
+    <string name="change_language">Ubah Bahasa</string>
+</resources>
