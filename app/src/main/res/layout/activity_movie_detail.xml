@@ -61,7 +61,8 @@
             android:foregroundGravity="bottom"
             android:src="@drawable/ic_favorite_outline"
             app:backgroundTint="@color/red"
-            app:tint="@color/white" />
+            app:tint="@color/white"
+            tools:ignore="RelativeOverlap" />
 
         <ScrollView
             android:layout_width="match_parent"

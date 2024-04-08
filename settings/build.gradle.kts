@@ -8,7 +8,7 @@ apply(from = "../shared_dependencies.gradle")
 
 android {
     namespace = "com.piwew.movieapp_cleanarchitecture.settings"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24

@@ -14,7 +14,8 @@ android {
     defaultConfig {
         applicationId = "com.piwew.movieapp_cleanarchitecture"
         minSdk = 24
-        targetSdk = 33
+        //noinspection EditedTargetSdkVersion
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

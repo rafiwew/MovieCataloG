@@ -18,7 +18,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
     private val movieAdapter = MovieAdapter()
     private val homeViewModel: HomeViewModel by viewModel()
 
@@ -26,25 +27,26 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setupRecycleView()
-        observeMovieData()
-        
-        binding.toolbar.setOnMenuItemClickListener { item ->
-            when(item.itemId) {
-                R.id.action_favorite -> {
-                    val uri = Uri.parse("movieapp_cleanarchitecture://favorites")
-                    startActivity(Intent(Intent.ACTION_VIEW, uri))
-                    true
+        if (activity != null) {
+            setupRecycleView()
+            observeMovieData()
+
+            binding.toolbar.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.action_favorite -> {
+                        val uri = Uri.parse("movieapp_cleanarchitecture://favorites")
+                        startActivity(Intent(Intent.ACTION_VIEW, uri))
+                        true
+                    }
+
+                    else -> false
                 }
-                else -> false
             }
         }
+
+        return binding.root
     }
 
     private fun setupRecycleView() {
@@ -63,11 +65,13 @@ class HomeFragment : Fragment() {
 
     private fun observeMovieData() {
         homeViewModel.movie.observe(requireActivity()) { result ->
-            showLoading(result is Resource.Loading)
-            when(result) {
-                is Resource.Success -> movieAdapter.submitList(result.data)
-                is Resource.Error -> showErrorMessage(result.message)
-                else -> {}
+            if (_binding != null) {
+                showLoading(result is Resource.Loading)
+                when (result) {
+                    is Resource.Success -> movieAdapter.submitList(result.data)
+                    is Resource.Error -> showErrorMessage(result.message)
+                    else -> {}
+                }
             }
         }
     }
@@ -81,5 +85,10 @@ class HomeFragment : Fragment() {
             root.visibility = View.VISIBLE
             tvError.text = errorMessage ?: getString(R.string.something_wrong)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

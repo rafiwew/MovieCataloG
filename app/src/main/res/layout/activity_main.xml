@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="Overdraw">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -42,7 +43,8 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navGraph="@navigation/mobile_navigation"
-            tools:layout="@layout/activity_main" />
+            tools:layout="@layout/fragment_home"
+            tools:ignore="FragmentTagUsage" />
     </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>

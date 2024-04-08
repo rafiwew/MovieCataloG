@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.piwew.movieapp_cleanarchitecture.core.utils
 
 import android.os.Handler
