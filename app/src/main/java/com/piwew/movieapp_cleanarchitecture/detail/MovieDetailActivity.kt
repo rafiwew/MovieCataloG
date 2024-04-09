@@ -20,7 +20,7 @@ class MovieDetailActivity : AppCompatActivity() {
         binding = ActivityMovieDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.ivActionBack.setOnClickListener { onSupportNavigateUp() }
-        showDetailMovie(intent.getParcelableExtra(EXTRA_DATA))
+        @Suppress("DEPRECATION") showDetailMovie(intent.getParcelableExtra(EXTRA_DATA))
     }
 
     private fun showDetailMovie(detailMovie: Movie?) {

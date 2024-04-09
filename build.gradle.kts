@@ -10,3 +10,6 @@ plugins {
 project.ext.set("apiKey", findProperty("API_KEY") as String?)
 project.ext.set("baseUrl", findProperty("BASE_URL") as String?)
 project.ext.set("baseUrlImage", findProperty("BASE_URL_IMAGE") as String?)
+project.ext.set("hostname", findProperty("HOSTNAME") as String?)
+project.ext.set("pin1", findProperty("PIN_1") as String?)
+project.ext.set("pin2", findProperty("PIN_2") as String?)

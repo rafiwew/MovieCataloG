@@ -1,6 +1,6 @@
 @file:Suppress(
     "UnstableApiUsage", "UnstableApiUsage", "UnstableApiUsage",
-    "UnstableApiUsage"
+    "UnstableApiUsage", "RedundantSuppression"
 )
 
 pluginManagement {

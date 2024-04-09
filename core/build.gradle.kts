@@ -19,15 +19,28 @@ android {
         val apiKey: String? by project
         val baseUrl: String? by project
         val baseUrlImage: String? by project
+        val hostname: String? by project
+        val pin1: String? by project
+        val pin2: String? by project
 
         buildConfigField("String", "API_KEY", "\"${apiKey ?: "default_value"}\"")
         buildConfigField("String", "BASE_URL", "\"${baseUrl ?: "default_value"}\"")
         buildConfigField("String", "BASE_URL_IMAGE", "\"${baseUrlImage ?: "default_value"}\"")
+        buildConfigField("String", "HOSTNAME", "\"${hostname ?: "default_value"}\"")
+        buildConfigField("String", "PIN_1", "\"${pin1 ?: "default_value"}\"")
+        buildConfigField("String", "PIN_2", "\"${pin2 ?: "default_value"}\"")
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        debug {
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -69,4 +82,8 @@ dependencies {
 
     // Android architecture component
     api("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+
+    // SQLCipher lib
+    implementation("net.zetetic:android-database-sqlcipher:4.4.0")
+    implementation("androidx.sqlite:sqlite-ktx:2.4.0")
 }
